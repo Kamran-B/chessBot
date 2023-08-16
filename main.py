@@ -5,6 +5,8 @@ import TreeNode
 
 
 def evaluate(board):
+    # Determines the evaluation of the current board, more positive means more favorable for white and
+    # negative is better for black
     checkBonus = 3
     whiteScore = 0
     blackScore = 0
@@ -33,6 +35,7 @@ def evaluate(board):
 
 if __name__ == '__main__':
     board = chess.Board()
+    depth = 3
 
     while(board.is_checkmate() == False):
         print(board)
@@ -43,10 +46,10 @@ if __name__ == '__main__':
         board.push_uci(move)
         print(board)
         tree = TreeNode.Node(board, None)
-        TreeNode.makeTree(tree, 3)
+        TreeNode.makeTree(tree, depth)
         #TreeNode.printTree(tree)
-        #move = TreeNode.minimax(tree, 4, False) # False since trying to minimize
-        move = TreeNode.abpruning(tree, 3, -10000000, 10000000, False)  # False since trying to minimize
+        #move = TreeNode.minimax(tree, depth, False) # False since trying to minimize
+        move = TreeNode.abpruning(tree, depth, -10000000, 10000000, False)  # False since trying to minimize
         board.push_uci(str(move.move))
     print("game over")
 

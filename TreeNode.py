@@ -14,6 +14,8 @@ class Node:
 
 
 def makeTree(root, depth, level=1):
+    # Generates the tree of possible moves
+
     # print(root.board)
     if depth <= 0:
         root.children = []
@@ -83,6 +85,7 @@ def abpruning(pos, depth, alpha, beta, maxPlayer):
 
 
 def printTree(tree):
+    # Prints out the contents of the tree (NOT WORKING)
     print(tree.score, len(tree.children))
     for child in tree.children:
         printTree(child)

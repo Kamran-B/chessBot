@@ -1,0 +1,4 @@
+Chess bot code that runs from main.
+It prompts the user to make the first move (must be entered in uci chess notation, eg. e2e4 means move the piece
+that was at e2 to e4) and then makes its own move. The number of moves in advance it looks can be changed by modifying
+the depth variable in main.
